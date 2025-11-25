@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wendy Weather AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">Wendy Weather AI</h1>
+        <nav>
+            <a href="#weather">Weather</a>
+            <a href="#app">App</a>
+            <a href="#merch">Merch</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Your Personal Precision Weather Companion</h2>
+        <p>Accurate forecasts. Clean insights. Wendy’s personality guiding your day.</p>
+    </section>
+
+    <!-- WEATHER SECTION -->
+    <section id="weather" class="weather-section">
+        <h2>Live Weather</h2>
+        <input type="text" id="cityInput" placeholder="Enter a city…">
+        <button onclick="getWeather()">Check Weather</button>
+
+        <div id="weatherResult" class="weather-card hidden">
+            <h3 id="cityName"></h3>
+            <p id="temp"></p>
+            <p id="condition"></p>
+            <p id="wind"></p>
+            <p id="humidity"></p>
+
+            <div class="wendy-bubble">
+                <p id="wendyMessage"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMING SOON APP SECTION -->
+    <section id="app" class="app-section">
+        <h2>Wendy Weather App</h2>
+        <p class="coming-soon">Coming Soon to iOS & Android</p>
+        <div class="app-preview"></div>
+    </section>
+
+    <!-- MERCH SECTION -->
+    <section id="merch" class="merch-section">
+        <h2>Wendy Merch</h2>
+        <div class="merch-grid">
+            <div class="merch-item">
+                <div class="placeholder-img"></div>
+                <h3>Wendy Tee</h3>
+                <a href="#" class="buy-button">Shop</a>
+            </div>
+
+            <div class="merch-item">
+                <div class="placeholder-img"></div>
+                <h3>Wendy Hoodie</h3>
+                <a href="#" class="buy-button">Shop</a>
+            </div>
+
+            <div class="merch-item">
+                <div class="placeholder-img"></div>
+                <h3>Ascendia Hat</h3>
+                <a href="#" class="buy-button">Shop</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Ascendia Labs — Wendy Weather AI</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

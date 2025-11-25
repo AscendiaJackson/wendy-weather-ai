@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #5b6cff, #8e44ad);
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.weather-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.weather-section input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 200px;
+}
+
+.weather-section button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.weather-card {
+    margin: 40px auto;
+    padding: 30px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.hidden {
+    display: none;
+}
+
+.wendy-bubble {
+    background: rgba(255, 255, 255, 0.25);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.app-section {
+    text-align: center;
+    padding: 60px;
+}
+
+.coming-soon {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.merch-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.merch-item {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 140px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #333;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+}
