@@ -130,7 +130,7 @@ nav a {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: 0; /* moved from -1 to 0 */
+    z-index: -1; /* moved from -1 to 0 */
 }
 
 .storm-overlay {
@@ -139,8 +139,7 @@ nav a {
     height: 100%;
     background: radial-gradient(circle at center, #000000, #000000);
     opacity: 1;
-    transition: opacity 3s ease;
-    z-index: 1; /* ensures storm is visible */
+    z-index: 0;
 }
 
 .lightning {
@@ -150,7 +149,7 @@ nav a {
     background: white;
     opacity: 0;
     animation: lightningFlash 8s infinite;
-    z-index: 2; /* lightning sits above storm */
+    z-index: 1; /* lightning sits above storm */
 }
 
 @keyframes lightningFlash {
@@ -170,7 +169,7 @@ nav a {
     background: radial-gradient(circle at center, rgba(255,255,150,0.7), rgba(255,255,100,0));
     opacity: 0;
     transition: opacity 4s ease;
-    z-index: 3; /* sunlight on top of storm + lightning */
+    z-index: 2; /* sunlight on top of storm + lightning */
 }
 
 #wendy-reveal {
@@ -180,7 +179,7 @@ nav a {
     transform: translate(-50%, -50%);
     opacity: 0;
     text-align: center;
-    z-index: 4; /* highest layer */
+    z-index: 10; /* highest layer */
     transition: opacity 3s ease;
 }
 
@@ -217,6 +216,7 @@ function playWendyIntro() {
 
 // Run animation on page load
 window.onload = playWendyIntro;
+
 
 
 
