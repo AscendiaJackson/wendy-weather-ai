@@ -116,7 +116,8 @@ function randomizeClouds() {
         if (Math.random() > 0.5) {
             cloud.style.transform = "translateX(-50%) scaleX(-1)";
         } else {
-            cloud.style.transform = "translateX(-50%)";
+            cloud.style.transform = "translate(-50%, 0)";
         }
     });
 }
+
