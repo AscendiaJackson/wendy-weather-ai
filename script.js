@@ -95,11 +95,18 @@ function playWendyIntro() {
     }, 14000);
 }
 
-// Randomize clouds each load
+// Run intro animation + clouds when page loads
+window.onload = () => {
+    playWendyIntro();
+    randomizeClouds();
+};
+
+// === RANDOMIZE CLOUD MOVEMENT & OPACITY ===
 function randomizeClouds() {
     const clouds = document.querySelectorAll(".cloud");
 
     clouds.forEach(cloud => {
+
         // Random vertical offset (stormy height)
         cloud.style.top = `${20 + Math.random() * 20}%`;
 
@@ -112,9 +119,3 @@ function randomizeClouds() {
         }
     });
 }
-
-// Run both when page loads
-window.onload = () => {
-    playWendyIntro();
-    randomizeClouds();
-};
