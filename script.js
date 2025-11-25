@@ -1,46 +1,98 @@
+// ------------------------------
+// FETCH WEATHER
+// ------------------------------
+
 async function getWeather() {
     const city = document.getElementById("cityInput").value;
     if (!city) return;
 
-    const apiKey = "YOUR_API_KEY_HERE"; // Replace with real API key
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+    const apikey = "YOUR_API_KEY_HERE"; // <--- replace with your real API key
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apikey}`;
 
-    const response = await fetch(url);
-    const data = await response.json();
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
 
-    document.getElementById("weatherResult").classList.remove("hidden");
+        if (data.cod !== 200) {
+            document.getElementById("wendyMessage").innerText =
+                "I couldn't find that city — try again, babe.";
+            return;
+        }
 
-    document.getElementById("cityName").innerText = data.name;
-    document.getElementById("temp").innerText = `Temperature: ${data.main.temp}°F`;
-    document.getElementById("condition").innerText = `Conditions: ${data.weather[0].description}`;
-    document.getElementById("wind").innerText = `Wind: ${data.wind.speed} mph`;
-    document.getElementById("humidity").innerText = `Humidity: ${data.main.humidity}%`;
+        // Reveal card
+        document.getElementById("weatherResult").classList.remove("hidden");
 
-    const condition = data.weather[0].main.toLowerCase();
-    document.getElementById("wendyMessage").innerText = wendyLine(condition);
+        // Insert data
+        document.getElementById("cityName").innerText = data.name;
+        document.getElementById("temp").innerText = `Temperature: ${data.main.temp}°F`;
+        document.getElementById("condition").innerText = `Conditions: ${data.weather[0].description}`;
+        document.getElementById("wind").innerText = `Wind: ${data.wind.speed} mph`;
+        document.getElementById("humidity").innerText = `Humidity: ${data.main.humidity}%`;
+
+        // Wendy personality line
+        const condition = data.weather[0].main.toLowerCase();
+        document.getElementById("wendyMessage").innerText = wendyLine(condition);
+
+    } catch (err) {
+        document.getElementById("wendyMessage").innerText =
+            "Something broke — but not me. Try again.";
+    }
 }
+
+// ------------------------------
+// WENDY PERSONALITY RESPONSES
+// ------------------------------
 
 function wendyLine(condition) {
-    if (condition.includes("rain")) return "Looks rainy — bring something waterproof and don’t let it ruin your vibe.";
-    if (condition.includes("cloud")) return "Cloudy skies today. Soft light, calm mood — not a bad day at all.";
-    if (condition.includes("clear")) return "Clear skies! Perfect for getting outside and vibing with the sun.";
-    if (condition.includes("storm")) return "Storm incoming. Be smart, stay safe, and let me guide you through it.";
-    if (condition.includes("snow")) return "Snow today — dress warm and enjoy the stillness.";
-    return "I've got you covered — whatever the weather is doing, I’ll guide you.";
+    if (condition.includes("rain"))
+        return "Looks rainy — bring waterproof and don’t let it ruin your vibe.";
+    if (condition.includes("cloud"))
+        return "Cloudy skies today. Soft light, calm mood — not a bad day at all.";
+    if (condition.includes("clear"))
+        return "Clear skies! Perfect for getting outside and vibing with the sun.";
+    if (condition.includes("storm"))
+        return "Storm incoming. Be smart, stay safe, and let me guide you through it.";
+    if (condition.includes("snow"))
+        return "Snow today — dress warm and enjoy the stillness.";
+
+    return "I’ve got you covered — whatever the weather is doing, I’ll guide you.";
 }
-/* === WENDY INTRO ANIMATION === */
+
+// ------------------------------
+// WENDY INTRO ANIMATION
+// ------------------------------
 
 function playWendyIntro() {
     const storm = document.querySelector('.storm-overlay');
     const light = document.querySelector('.sunlight');
     const reveal = document.getElementById('wendy-reveal');
 
-    // After a few seconds, sunlight begins to push through
+    if (!storm || !light || !reveal) {
+        console.warn("Intro animation elements missing.");
+        return;
+    }
+
+    // Step 1 — storm visible (default)
+    storm.style.opacity = 1;
+    light.style.opacity = 0;
+    reveal.style.opacity = 0;
+
+    // Step 2 — sunlight begins pushing through
     setTimeout(() => {
         storm.style.opacity = 0.3;
         light.style.opacity = 1;
-    }, 5000);
+    }, 4000);
 
-    // Wendy fades in as the storm clears
+    // Step 3 — Wendy fades in
     setTimeout(() => {
+        reveal.style.opacity = 1;
+    }, 9000);
 
+    // Step 4 — storm fully clears
+    setTimeout(() => {
+        storm.style.opacity = 0;
+        light.style.opacity = 0.2;
+    }, 14000);
+}
+
+// Run
