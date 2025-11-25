@@ -95,4 +95,6 @@ function playWendyIntro() {
     }, 14000);
 }
 
-// Run
+// Run intro animation when page loads
+window.onload = playWendyIntro;
+
