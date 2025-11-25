@@ -133,6 +133,21 @@ nav a {
     z-index: -1; /* moved from -1 to 0 */
 }
 
+.cloud {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 30%;
+    animation: drift 20s linear infinite;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+@keyframes drift {
+    0% { transform: translateX(-20%); }
+    100% { transform: translateX(20%); }
+}
+
 .storm-overlay {
     position: absolute;
     width: 100%;
@@ -189,6 +204,7 @@ nav a {
     color: white;
     text-shadow: 0px 0px 20px rgba(255,255,255,0.7);
 }
+
 
 
 
