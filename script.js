@@ -106,18 +106,18 @@ function randomizeClouds() {
     const clouds = document.querySelectorAll(".cloud");
 
     clouds.forEach(cloud => {
-        // ❌ no more vertical override – let CSS control 'top'
-        // cloud.style.top = `${20 + Math.random() * 20}%`;
+
+        // Keep CSS top positioning intact
+        // cloud.style.top = `${20 + Math.random() * 20}%`;  // (disabled, good)
 
         // Random opacity variation
         cloud.style.opacity = 0.7 + Math.random() * 0.3;
 
-        // Flip horizontally sometimes, but keep it centered
+        // Flip horizontally sometimes, but DO NOT override Y transform
         if (Math.random() > 0.5) {
-            cloud.style.transform = "translateX(-50%) scaleX(-1)";
+            cloud.style.transform = "translate(-50%, 0) scaleX(-1)";
         } else {
             cloud.style.transform = "translate(-50%, 0)";
         }
     });
 }
-
