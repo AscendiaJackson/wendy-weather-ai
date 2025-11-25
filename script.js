@@ -95,6 +95,26 @@ function playWendyIntro() {
     }, 14000);
 }
 
-// Run intro animation when page loads
-window.onload = playWendyIntro;
+// Randomize clouds each load
+function randomizeClouds() {
+    const clouds = document.querySelectorAll(".cloud");
 
+    clouds.forEach(cloud => {
+        // Random vertical offset (stormy height)
+        cloud.style.top = `${20 + Math.random() * 20}%`;
+
+        // Random opacity variation
+        cloud.style.opacity = 0.7 + Math.random() * 0.3;
+
+        // Flip horizontally sometimes (different silhouettes)
+        if (Math.random() > 0.5) {
+            cloud.style.transform = "scaleX(-1)";
+        }
+    });
+}
+
+// Run both when page loads
+window.onload = () => {
+    playWendyIntro();
+    randomizeClouds();
+};
