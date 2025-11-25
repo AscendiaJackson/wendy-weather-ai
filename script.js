@@ -106,16 +106,17 @@ function randomizeClouds() {
     const clouds = document.querySelectorAll(".cloud");
 
     clouds.forEach(cloud => {
-
-        // Random vertical offset (stormy height)
-        cloud.style.top = `${20 + Math.random() * 20}%`;
+        // ❌ no more vertical override – let CSS control 'top'
+        // cloud.style.top = `${20 + Math.random() * 20}%`;
 
         // Random opacity variation
         cloud.style.opacity = 0.7 + Math.random() * 0.3;
 
-        // Flip horizontally sometimes (different silhouettes)
+        // Flip horizontally sometimes, but keep it centered
         if (Math.random() > 0.5) {
-            cloud.style.transform = "scaleX(-1)";
+            cloud.style.transform = "translateX(-50%) scaleX(-1)";
+        } else {
+            cloud.style.transform = "translateX(-50%)";
         }
     });
 }
