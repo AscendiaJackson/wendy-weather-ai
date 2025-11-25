@@ -162,7 +162,7 @@ nav a {
     width: 130%;           /* wider for cinematic look */
     left: 50%;
     transform: translateX(-50%);
-    top: -150%;             /* moves clouds upward */
+    top: -45%;             /* moves clouds upward */
     opacity: 0.92;
     animation: drift 22s linear infinite;
     z-index: 1;
@@ -216,6 +216,7 @@ nav a {
     color: white;
     text-shadow: 0px 0px 20px rgba(255,255,255,0.7);
 }
+
 
 
 
