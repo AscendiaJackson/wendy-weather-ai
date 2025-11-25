@@ -160,7 +160,7 @@ nav a {
     position: absolute;
     width: 100%;
     height: auto;
-    top: 3%;
+    top: -10%;        /* pulls clouds upward */
     animation: drift 20s linear infinite;
     opacity: 0.9;
     z-index: 0;
@@ -207,6 +207,7 @@ nav a {
     color: white;
     text-shadow: 0px 0px 20px rgba(255,255,255,0.7);
 }
+
 
 
 
