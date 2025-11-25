@@ -28,3 +28,19 @@ function wendyLine(condition) {
     if (condition.includes("snow")) return "Snow today — dress warm and enjoy the stillness.";
     return "I've got you covered — whatever the weather is doing, I’ll guide you.";
 }
+/* === WENDY INTRO ANIMATION === */
+
+function playWendyIntro() {
+    const storm = document.querySelector('.storm-overlay');
+    const light = document.querySelector('.sunlight');
+    const reveal = document.getElementById('wendy-reveal');
+
+    // After a few seconds, sunlight begins to push through
+    setTimeout(() => {
+        storm.style.opacity = 0.3;
+        light.style.opacity = 1;
+    }, 5000);
+
+    // Wendy fades in as the storm clears
+    setTimeout(() => {
+
