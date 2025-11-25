@@ -153,7 +153,7 @@ nav a {
     height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: -1; /* moved from -1 to 0 */
+    z-index: 0; /* moved from -1 to 0 */
 }
 
 /* CLOUD APPEARANCE & POSITIONING */
@@ -216,6 +216,7 @@ nav a {
     color: white;
     text-shadow: 0px 0px 20px rgba(255,255,255,0.7);
 }
+
 
 
 
